@@ -35,6 +35,8 @@ public class Restaurant {
         return Collections.unmodifiableList(menu);
     }
 
+
+
     private Item findItemByName(String itemName){
         for(Item item: menu) {
             if(item.getName().equals(itemName))
@@ -69,5 +71,16 @@ public class Restaurant {
         return name;
     }
 
+
+
+
+    public int getOrderValue(List<String> itemNames) {
+        int orderValue = 0;
+        for (String itemName : itemNames){
+            Item item = findItemByName(itemName);
+            orderValue += item.getPrice();
+        }
+         return orderValue;
+    }
 
 }
